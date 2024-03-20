@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A808496F2BAB574E00F295F5 /* GradePointAverageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */; };
-		A80849712BAB574E00F295F5 /* GradeCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80849702BAB574E00F295F5 /* GradeCalculatorView.swift */; };
+		A80849712BAB574E00F295F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80849702BAB574E00F295F5 /* ContentView.swift */; };
 		A80849732BAB575000F295F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80849722BAB575000F295F5 /* Assets.xcassets */; };
 		A80849762BAB575000F295F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80849752BAB575000F295F5 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		A808496B2BAB574E00F295F5 /* GradePointAverage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradePointAverage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradePointAverageApp.swift; sourceTree = "<group>"; };
-		A80849702BAB574E00F295F5 /* GradeCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCalculatorView.swift; sourceTree = "<group>"; };
+		A80849702BAB574E00F295F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A80849722BAB575000F295F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A80849752BAB575000F295F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */,
-				A80849702BAB574E00F295F5 /* GradeCalculatorView.swift */,
+				A80849702BAB574E00F295F5 /* ContentView.swift */,
 				A80849722BAB575000F295F5 /* Assets.xcassets */,
 				A80849742BAB575000F295F5 /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A80849712BAB574E00F295F5 /* GradeCalculatorView.swift in Sources */,
+				A80849712BAB574E00F295F5 /* ContentView.swift in Sources */,
 				A808496F2BAB574E00F295F5 /* GradePointAverageApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,7 +278,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -286,12 +287,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sprun.GradePointAverage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -309,7 +307,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,12 +316,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sprun.GradePointAverage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
