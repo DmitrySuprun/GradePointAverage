@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum CalcButton: String {
+enum CalculatorButton: String {
     case one = "1"
     case two = "2"
     case three = "3"
@@ -40,19 +40,10 @@ enum Operation {
 }
 
 struct GradeCalculatorView: View {
+    
+    @StateObject var viewModel: GradeCalculatorViewModel
 
-    @State var value = ""
-    @State var currentMemory: String = CalcButton.memory1.rawValue
-    @State var gradesMemory: [String:[Int]] = [CalcButton.memory1.rawValue:[]]
-    var grades: [Int] {
-        gradesMemory[currentMemory] ?? []
-    }
-    var gradePointAverage: Double {
-        guard !grades.isEmpty else { return 0 }
-        return (Double(grades.reduce(0, +)) / Double(grades.count) * 100).rounded() / 100
-    }
-
-    let buttons: [[CalcButton]] = [
+    let buttons: [[CalculatorButton]] = [
        
         [.seven, .eight, .nine, .memory1],
         [.four, .five, .six, .memory2],
@@ -66,11 +57,11 @@ struct GradeCalculatorView: View {
 
             VStack {
                 HStack {
-                    Text(verbatim: String(format: "%.2f", gradePointAverage))
+                    Text(verbatim: String(format: "%.2f", viewModel.gradePointAverage))
                     Spacer()
-                    Text(verbatim: String(grades.count))
+                    Text(verbatim: viewModel.gradesCount)
                     Spacer()
-                    Text(currentMemory)
+                    Text(viewModel.currentMemory)
                 }
                 .padding()
                 Spacer()
@@ -78,7 +69,7 @@ struct GradeCalculatorView: View {
                 // Text display
                 HStack {
                     Spacer()
-                    Text(value)
+                    Text(viewModel.displayedGrades)
                         .multilineTextAlignment(.leading)
                         .bold()
                         .font(.system(size: 50))
@@ -91,7 +82,7 @@ struct GradeCalculatorView: View {
                     HStack(spacing: 12) {
                         ForEach(row, id: \.self) { item in
                             Button(action: {
-                                self.didTap(button: item)
+                                viewModel.didTap(button: item)
                             }, label: {
                                 Text(item.rawValue)
                                     .font(.system(size: 32))
@@ -111,35 +102,7 @@ struct GradeCalculatorView: View {
         }
     }
 
-    func didTap(button: CalcButton) {
-        switch button {
-        case .clear:
-            value = ""
-            gradesMemory[currentMemory]?.removeAll()
-        case .back:
-            guard !grades.isEmpty else { return }
-            gradesMemory[currentMemory]?.removeLast()
-            value = grades.map { String($0) }.joined(separator: " ")
-        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten:
-            guard let grade = Int(button.rawValue) else { return }
-            gradesMemory[currentMemory]?.append(grade)
-            let number = button.rawValue
-            if value == "0" {
-                value = number
-            }
-            else {
-                value = grades.map { String($0) }.joined(separator: " ")
-            }
-        case .memory1, .memory2, .memory3:
-            currentMemory = button.rawValue
-            if grades.isEmpty {
-                gradesMemory[currentMemory] = []
-            }
-            value = grades.map { String($0) }.joined(separator: " ")
-        }
-    }
-
-    func buttonWidth(item: CalcButton) -> CGFloat {
+    func buttonWidth(item: CalculatorButton) -> CGFloat {
         if item == .ten {
             return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
         }
@@ -152,5 +115,5 @@ struct GradeCalculatorView: View {
 }
 
 #Preview {
-    GradeCalculatorView()
+    GradeCalculatorBuilder.makeCalculatorView()
 }

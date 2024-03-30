@@ -11,7 +11,7 @@ import SwiftUI
 struct GradePointAverageApp: App {
     var body: some Scene {
         WindowGroup {
-            GradeCalculatorView()
+            GradeCalculatorBuilder.makeCalculatorView()
         }
     }
 }
