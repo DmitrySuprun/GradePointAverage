@@ -9,6 +9,17 @@ import Foundation
 
 final class GradeCalculatorViewModel: ObservableObject {
     
+    let buttons: [[CalculatorButton]] = [
+        [.seven, .eight, .nine],
+        [.four, .five, .six],
+        [.one, .two, .three],
+        [.ten]
+    ]
+    
+    let funcButtons: [CalculatorButton] = [
+        .memory1, .memory2, .clear, .back
+    ]
+    
     // Published
     @Published var displayedGrades = ""
     @Published var gradePointAverage = 0.0

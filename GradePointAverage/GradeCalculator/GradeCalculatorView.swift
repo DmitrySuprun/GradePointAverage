@@ -35,82 +35,94 @@ enum CalculatorButton: String {
     }
 }
 
-enum Operation {
-    case add, subtract, multiply, divide, none
-}
-
 struct GradeCalculatorView: View {
     
     @StateObject var viewModel: GradeCalculatorViewModel
 
-    let buttons: [[CalculatorButton]] = [
-       
-        [.seven, .eight, .nine, .memory1],
-        [.four, .five, .six, .memory2],
-        [.one, .two, .three, .memory3],
-        [.ten, .back, .clear],
-    ]
+    // Определяем столбцы для сетки
+    private let columns: [GridItem] = {
+        let columns = Array(repeating: GridItem(.flexible()), count: 3)
+        return columns
+    }()
 
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
 
             VStack {
-                HStack {
-                    Text(verbatim: String(format: "%.2f", viewModel.gradePointAverage))
-                    Spacer()
-                    Text(verbatim: viewModel.gradesCount)
-                    Spacer()
-                    Text(viewModel.currentMemory)
-                }
-                .padding()
+                // Информационная панель
+                InformationPanelView(gpa: viewModel.gradePointAverage, gradesCount: viewModel.gradesCount, currentMemory: viewModel.currentMemory)
+                    .padding()
+
                 Spacer()
 
-                // Text display
+                // Дисплей для отображения введенных оценок
                 HStack {
                     Spacer()
                     Text(viewModel.displayedGrades)
-                        .multilineTextAlignment(.leading)
+                        .multilineTextAlignment(.trailing)
                         .bold()
                         .font(.system(size: 50))
                         .foregroundColor(.white)
                 }
                 .padding()
 
-                // Our buttons
-                ForEach(buttons, id: \.self) { row in
-                    HStack(spacing: 12) {
-                        ForEach(row, id: \.self) { item in
+                Spacer()
+
+                // Сетка кнопок
+                HStack {
+                    VStack {
+                        ForEach(0..<viewModel.buttons.count, id: \.self) { row in
+                            HStack {
+                                ForEach(viewModel.buttons[row], id: \.self) { item in
+                                    Button(action: {
+                                        viewModel.didTap(button: item)
+                                    }, label: {
+                                        Text(item.rawValue)
+                                            .font(.system(size: 32))
+                                            .frame(minWidth: 80, maxWidth: .infinity, minHeight: 80)
+                                            .background(item.buttonColor)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(40) //Используйте 40 или другое значение, для большей кнопки возможно потребуется рассчитать радиус основываясь на ширине кнопки.
+                                    })
+                                }
+                            }
+                        }
+                    }
+                    VStack {
+                        ForEach(viewModel.funcButtons, id: \.self) { item in
                             Button(action: {
                                 viewModel.didTap(button: item)
                             }, label: {
                                 Text(item.rawValue)
                                     .font(.system(size: 32))
-                                    .frame(
-                                        width: self.buttonWidth(item: item),
-                                        height: self.buttonHeight()
-                                    )
+                                    .frame(minWidth: 80, minHeight: 80)
                                     .background(item.buttonColor)
                                     .foregroundColor(.white)
-                                    .cornerRadius(self.buttonWidth(item: item)/2)
+                                    .cornerRadius(40)
                             })
                         }
                     }
-                    .padding(.bottom, 3)
                 }
             }
         }
     }
+}
 
-    func buttonWidth(item: CalculatorButton) -> CGFloat {
-        if item == .ten {
-            return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
+// Компонент отдельной информационной панели
+struct InformationPanelView: View {
+    let gpa: Double
+    let gradesCount: String
+    let currentMemory: String
+    
+    var body: some View {
+        HStack {
+            Text(verbatim: String(format: "%.2f", gpa))
+            Spacer()
+            Text(verbatim: gradesCount)
+            Spacer()
+            Text(currentMemory)
         }
-        return (UIScreen.main.bounds.width - (5*12)) / 4
-    }
-
-    func buttonHeight() -> CGFloat {
-        return (UIScreen.main.bounds.width - (5*12)) / 4
     }
 }
 
