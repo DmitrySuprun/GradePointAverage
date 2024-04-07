@@ -9,7 +9,7 @@ import SwiftUI
 
 class GradeCalculatorBuilder {
     static func makeCalculatorView() -> some View {
-        let calculator = AverageCalculator(grades: [])
+        let calculator = AverageCalculator()
         let viewModel = GradeCalculatorViewModel(calculator: calculator)
         return GradeCalculatorView(viewModel: viewModel)
     }

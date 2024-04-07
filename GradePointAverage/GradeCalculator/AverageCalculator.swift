@@ -19,7 +19,7 @@ final class AverageCalculator {
     private var gradesStorage: [Grade]
     
     // MARK: - Init
-    init(grades: [Grade]) {
+    init(_ grades: [Grade] = []) {
         self.gradesStorage = grades
     }
 }

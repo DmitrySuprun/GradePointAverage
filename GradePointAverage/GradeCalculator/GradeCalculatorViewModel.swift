@@ -9,15 +9,12 @@ import Foundation
 
 final class GradeCalculatorViewModel: ObservableObject {
     
-    let buttons: [[CalculatorButton]] = [
-        [.seven, .eight, .nine],
-        [.four, .five, .six],
-        [.one, .two, .three],
-        [.ten]
-    ]
-    
-    let funcButtons: [CalculatorButton] = [
-        .memory1, .memory2, .clear, .back
+    let buttons: [[ButtonType]] = [
+        [.memory(.m1), .memory(.m2), .memory(.m3), .settings],
+        [.grade(Grade(description: "7")), .grade(Grade(description: "8")), .grade(Grade(description: "9")), .reserve],
+        [.grade(Grade(description: "4")), .grade(Grade(description: "5")), .grade(Grade(description: "6")), .reserve],
+        [.grade(Grade(description: "1")), .grade(Grade(description: "2")), .grade(Grade(description: "3")), .clear],
+        [.grade(Grade(description: "0")), .grade(Grade(description: "10")), .back],
     ]
     
     // Published
@@ -37,18 +34,19 @@ final class GradeCalculatorViewModel: ObservableObject {
     
     // MARK: - Public properties
     
-    func didTap(button: CalculatorButton) {
+    func didTap(button: ButtonType) {
         switch button {
         case .clear:
             calculator.resetCalculator()
         case .back:
             calculator.removeLastGrade()
-        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten:
-            guard let gradeValue = Int(button.rawValue) else { break }
-            let newGrade = Grade(value: gradeValue)
-            calculator.appendNew(grade: newGrade)
-        case .memory1, .memory2, .memory3:
-            currentMemory = button.rawValue
+        case .grade(let grade):
+            guard let grade else { break }
+            calculator.appendNew(grade: grade)
+        case .memory(let memory):
+            currentMemory = memory.description
+        default:
+            break
         }
         updateUI()
     }
