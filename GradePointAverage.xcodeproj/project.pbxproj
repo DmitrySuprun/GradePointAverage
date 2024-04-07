@@ -10,6 +10,7 @@
 		A808496F2BAB574E00F295F5 /* GradePointAverageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */; };
 		A80849732BAB575000F295F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80849722BAB575000F295F5 /* Assets.xcassets */; };
 		A80849762BAB575000F295F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80849752BAB575000F295F5 /* Preview Assets.xcassets */; };
+		A86590552BC1EDB400EA9DBF /* TestUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86590542BC1EDB400EA9DBF /* TestUI.swift */; };
 		A865CCD12BB8163E00C6E08B /* GradeCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865CCD02BB8163E00C6E08B /* GradeCalculatorView.swift */; };
 		A865CCD42BB817AD00C6E08B /* GradeCalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865CCD32BB817AD00C6E08B /* GradeCalculatorViewModel.swift */; };
 		A865CCD62BB8184D00C6E08B /* AverageCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865CCD52BB8184D00C6E08B /* AverageCalculator.swift */; };
@@ -23,6 +24,7 @@
 		A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradePointAverageApp.swift; sourceTree = "<group>"; };
 		A80849722BAB575000F295F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A80849752BAB575000F295F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A86590542BC1EDB400EA9DBF /* TestUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUI.swift; sourceTree = "<group>"; };
 		A865CCD02BB8163E00C6E08B /* GradeCalculatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCalculatorView.swift; sourceTree = "<group>"; };
 		A865CCD32BB817AD00C6E08B /* GradeCalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCalculatorViewModel.swift; sourceTree = "<group>"; };
 		A865CCD52BB8184D00C6E08B /* AverageCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageCalculator.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				A865CCD02BB8163E00C6E08B /* GradeCalculatorView.swift */,
+				A86590542BC1EDB400EA9DBF /* TestUI.swift */,
 				A865CCD32BB817AD00C6E08B /* GradeCalculatorViewModel.swift */,
 				A865CCD72BB818E400C6E08B /* Grade.swift */,
 				A865CCD92BB81AD000C6E08B /* GradeAverage.swift */,
@@ -165,6 +168,7 @@
 				A865CCD42BB817AD00C6E08B /* GradeCalculatorViewModel.swift in Sources */,
 				A865CCDC2BB8554D00C6E08B /* GradeCalculatorBuilder.swift in Sources */,
 				A865CCD82BB818E400C6E08B /* Grade.swift in Sources */,
+				A86590552BC1EDB400EA9DBF /* TestUI.swift in Sources */,
 				A865CCD62BB8184D00C6E08B /* AverageCalculator.swift in Sources */,
 				A865CCDA2BB81AD000C6E08B /* GradeAverage.swift in Sources */,
 			);

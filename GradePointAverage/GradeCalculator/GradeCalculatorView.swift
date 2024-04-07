@@ -27,7 +27,7 @@ enum CalculatorButton: String {
 
     var buttonColor: Color {
         switch self {
-        case .clear, .memory1, .memory2, .memory3:
+        case .clear, .memory1, .memory2, .memory3, .back:
             return .orange
         default:
             return Color(.systemGray4)
@@ -50,13 +50,15 @@ struct GradeCalculatorView: View {
             Color.black.edgesIgnoringSafeArea(.all)
 
             VStack {
-                // Информационная панель
-                InformationPanelView(gpa: viewModel.gradePointAverage, gradesCount: viewModel.gradesCount, currentMemory: viewModel.currentMemory)
-                    .padding()
+                InformationPanelView(
+                    gpa: viewModel.gradePointAverage,
+                    gradesCount: viewModel.gradesCount,
+                    currentMemory: viewModel.currentMemory
+                )
+                .padding()
 
                 Spacer()
 
-                // Дисплей для отображения введенных оценок
                 HStack {
                     Spacer()
                     Text(viewModel.displayedGrades)
@@ -69,48 +71,63 @@ struct GradeCalculatorView: View {
 
                 Spacer()
 
-                // Сетка кнопок
-                HStack {
-                    VStack {
-                        ForEach(0..<viewModel.buttons.count, id: \.self) { row in
-                            HStack {
-                                ForEach(viewModel.buttons[row], id: \.self) { item in
-                                    Button(action: {
-                                        viewModel.didTap(button: item)
-                                    }, label: {
-                                        Text(item.rawValue)
-                                            .font(.system(size: 32))
-                                            .frame(minWidth: 80, maxWidth: .infinity, minHeight: 80)
-                                            .background(item.buttonColor)
-                                            .foregroundColor(.white)
-                                            .cornerRadius(40) //Используйте 40 или другое значение, для большей кнопки возможно потребуется рассчитать радиус основываясь на ширине кнопки.
-                                    })
-                                }
-                            }
-                        }
+                HStack(spacing: 20) {
+                    VStack(spacing: 20) {
+                        numblockButtons
                     }
-                    VStack {
-                        ForEach(viewModel.funcButtons, id: \.self) { item in
-                            Button(action: {
-                                viewModel.didTap(button: item)
-                            }, label: {
-                                Text(item.rawValue)
-                                    .font(.system(size: 32))
-                                    .frame(minWidth: 80, minHeight: 80)
-                                    .background(item.buttonColor)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(40)
-                            })
-                        }
+                    VStack(spacing: 20) {
+                        functionBlockButtons
                     }
+                }
+                .padding()
+            }
+        }
+    }
+    
+    // MARK: - Private UI
+    
+    private var numblockButtons: some View {
+        ForEach(0..<viewModel.buttons.count, id: \.self) { row in
+            HStack(spacing: 30) {
+                ForEach(viewModel.buttons[row], id: \.self) { item in
+                    Button(action: {
+                        viewModel.didTap(button: item)
+                    }, label: {
+                        let isLastButton = viewModel.buttons[row].last?.rawValue == item.rawValue
+                        
+                        let maxWidth: CGFloat = viewModel.buttons[row].count < 3 && isLastButton ? .infinity : 80
+                      
+                        Text(item.rawValue)
+                            .font(.system(size: 32))
+                            .frame(minWidth: 80, maxWidth: maxWidth, maxHeight: 80)
+                            .background(item.buttonColor)
+                            .foregroundColor(.white)
+                            .cornerRadius(40)
+                    })
                 }
             }
         }
     }
+    
+    private var functionBlockButtons: some View {
+        ForEach(viewModel.funcButtons, id: \.self) { item in
+            Button(action: {
+                viewModel.didTap(button: item)
+            }, label: {
+                Text(item.rawValue)
+                    .font(.system(size: 32))
+                    .frame(minWidth: 80, minHeight: 80)
+                    .background(item.buttonColor)
+                    .foregroundColor(.white)
+                    .cornerRadius(40)
+            })
+        }
+    }
 }
 
-// Компонент отдельной информационной панели
 struct InformationPanelView: View {
+    
+    /// Grades Point Average
     let gpa: Double
     let gradesCount: String
     let currentMemory: String

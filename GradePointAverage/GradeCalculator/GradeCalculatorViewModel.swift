@@ -23,7 +23,7 @@ final class GradeCalculatorViewModel: ObservableObject {
     // Published
     @Published var displayedGrades = ""
     @Published var gradePointAverage = 0.0
-    @Published var gradesCount = ""
+    @Published var gradesCount = "0"
     @Published var currentMemory = ""
     
     // Dependencies
@@ -58,5 +58,6 @@ final class GradeCalculatorViewModel: ObservableObject {
     private func updateUI() {
         displayedGrades = calculator.grades
         gradePointAverage = calculator.fetchGradeAverage()?.value ?? 0.0
+        gradesCount = String(calculator.grades.count)
     }
 }
