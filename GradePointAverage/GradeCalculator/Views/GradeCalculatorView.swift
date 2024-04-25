@@ -39,10 +39,10 @@ struct GradeCalculatorView: View {
             ForEach(viewModel.buttons, id: \.self) { row in
                 HStack(spacing: Constants.padding) {
                     ForEach(row, id: \.self) { buttonType in
-                        let test = row.count < 4 && buttonType == lastGradeButton(from: row)
+                        let isWide = row.count < 4 && buttonType == lastGradeButton(from: row)
                         CalculatorButton(
                             buttonType: buttonType,
-                            isWide: test) {
+                            isWide: isWide) {
                                 viewModel.didTap(button: buttonType)
                             }
                     }
