@@ -8,14 +8,14 @@
 import Security
 import Foundation
 
-private extension String {
+private extension Constants {
     static let keychainService = "com.gradepointaverage.service"
 }
 
 class KeychainManager {
     
     static func savePassword(account: String, password: String) -> Bool {
-        let service = String.keychainService
+        let service = Constants.keychainService
         
         guard let passwordData = password.data(using: .utf8) else { return false }
         
@@ -35,7 +35,7 @@ class KeychainManager {
     }
     
     static func getPassword(account: String) -> String? {
-        let service = String.keychainService
+        let service = Constants.keychainService
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: service,
