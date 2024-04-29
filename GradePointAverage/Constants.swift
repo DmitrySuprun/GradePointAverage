@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// General constants
 enum Constants {
-    static let padding: CGFloat = 12.0
+    static let buttonPadding: CGFloat = 18
 }

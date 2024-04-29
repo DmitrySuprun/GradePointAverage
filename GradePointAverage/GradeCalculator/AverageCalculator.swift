@@ -5,52 +5,101 @@
 //  Created by Dmitriy Suprun on 30.03.24.
 //
 
-protocol IAverageCalculator: AnyObject {
-    var grades: String { get }
-    func appendNew(grade: Grade)
-    func removeLastGrade()
-    func resetCalculator()
-    func fetchGradeAverage() -> GradeAverage?
+private extension Constants {
+    static let gradesSeparator = " "
 }
 
+/// Calculator
+protocol IAverageCalculator: AnyObject {
+    /// Current grades as a string
+    var grades: String { get }
+    /// Appends a new grade to the current memory.
+    func appendNew(grade: Grade)
+    /// Removes the last grade from the current memory.
+    func removeLastGrade()
+    /// Resets grades in the current memory.
+    func resetCurrentMemory()
+    /// Reset calculator state
+    func resetCalculator()
+    /// Fetches the average grade value for the current memory.
+    /// - Returns: `GradeAverage` if the average could be calculated, otherwise `nil`.
+    func fetchGradeAverage() -> GradeAverage?
+    /// Sets the working memory for the calculator.
+    func setCurrentMemory(_ memory: Memory)
+    /// Memory of calculator state
+    func getCurrentMemory() -> Memory
+    /// Grades count for calculate average value
+    func getGradesCount() -> Int
+}
+
+/// Calculator
 final class AverageCalculator {
     
-    // MARK: - Private
-    private var gradesStorage: [Grade]
-    
-    // MARK: - Init
-    init(_ grades: [Grade] = []) {
-        self.gradesStorage = grades
+    // MARK: - Properties
+    private var gradesStorage: [Memory: [Grade]] = [:]
+    private var currentMemory: Memory = .m1
+
+    // MARK: - Initialization
+    init(grades: [Grade] = []) {
+        gradesStorage[currentMemory] = grades
     }
 }
 
-// MARK: - IAverageCalculatorService
-
+// MARK: - Average Calculation Logic
 extension AverageCalculator: IAverageCalculator {
     
     var grades: String {
-        gradesStorage.map { String($0.value) }.joined(separator: " ")
+        getGradesForCurrentMemory().map { $0.description }.joined(separator: Constants.gradesSeparator)
     }
     
     func appendNew(grade: Grade) {
-        gradesStorage.append(grade)
+        if gradesStorage[currentMemory] == nil {
+            gradesStorage[currentMemory] = [grade]
+        } else {
+            gradesStorage[currentMemory]?.append(grade)
+        }
     }
     
     func removeLastGrade() {
-        guard !gradesStorage.isEmpty else { return }
-        gradesStorage.removeLast()
+        guard let grades = gradesStorage[currentMemory], !grades.isEmpty else { return }
+        gradesStorage[currentMemory]?.removeLast()
+    }
+    
+    func resetCurrentMemory() {
+        gradesStorage[currentMemory]?.removeAll()
     }
     
     func resetCalculator() {
         gradesStorage.removeAll()
+        currentMemory = .m1
     }
-    
+
     func fetchGradeAverage() -> GradeAverage? {
-        if gradesStorage.isEmpty {
-            return nil
-        }
-        let averageValue = Double(gradesStorage.reduce(0) { $0 + $1.value }) / Double(gradesStorage.count)
+        let grades = getGradesForCurrentMemory()
+        guard !grades.isEmpty else { return nil }
+        let averageValue = grades.reduce(0.0) { $0 + Double($1.value) } / Double(grades.count)
         return GradeAverage(value: averageValue)
     }
+    
+    func setCurrentMemory(_ memory: Memory) {
+        currentMemory = memory
+    }
+    
+    func getCurrentMemory() -> Memory {
+        currentMemory
+    }
+    
+    func getGradesCount() -> Int {
+        getGradesForCurrentMemory().count
+    }
+    
+    // MARK: - Private
+    
+    /// Gets grades for the current memory.
+    /// - Returns: An array of `Grade`.
+    private func getGradesForCurrentMemory() -> [Grade] {
+        return gradesStorage[currentMemory] ?? []
+    }
 }
+
 

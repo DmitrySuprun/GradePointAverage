@@ -7,11 +7,16 @@
 
 import SwiftUI
 
+/// Button
 struct CalculatorButton: View {
+    
+    // MARK: - Properties
     
     let buttonType: ButtonType
     let isWide: Bool
     let action: () -> Void
+    
+    // MARK: - Init
     
     init(
         buttonType: ButtonType,
@@ -22,6 +27,8 @@ struct CalculatorButton: View {
         self.isWide = isWide
         self.action = action
     }
+    
+    // MARK: - View
     
     var body: some View {
         Button(buttonType.description) {
@@ -35,13 +42,13 @@ struct CalculatorButton: View {
         ))
     }
     
-    // MARK: - HELPERS
+    // MARK: - Private methods
     
     private func getButtonSize() -> CGFloat {
         let screenWidth = UIScreen.main.bounds.width
         let buttonCount: CGFloat = 4
         let spacingCount = buttonCount + 1
-        return (screenWidth - (spacingCount * Constants.padding)) / buttonCount
+        return (screenWidth - (spacingCount * Constants.buttonPadding)) / buttonCount
     }
     
     private func getBackgroundColor() -> Color {
@@ -53,6 +60,7 @@ struct CalculatorButton: View {
     }
 }
 
+// MARK: - Preview
 
 struct CalculatorView_CalculatorButton_Previews: PreviewProvider {
     static var previews: some View {

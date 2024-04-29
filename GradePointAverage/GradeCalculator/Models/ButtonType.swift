@@ -8,13 +8,15 @@
 import Foundation
 import SwiftUI
 
+/// Calculator Bytton type
 enum ButtonType: Hashable, CustomStringConvertible {
     case grade(_ grade: Grade?)
     case memory(_ memory: Memory)
     case settings
+    case up
+    case down
     case back
     case clear
-    case reserve
     
     var description: String {
         switch self {
@@ -23,20 +25,22 @@ enum ButtonType: Hashable, CustomStringConvertible {
         case .memory(let memory):
             return memory.description
         case .settings:
-            return "⚙"
+            return "⛭"
+        case .up:
+            return "△"
+        case .down:
+            return "▽"
         case .back:
             return "←"
         case .clear:
             return "C"
-        case .reserve:
-            return "?"
         }
     }
     
     var backgroundColor: Color {
         switch self {
         case .memory:
-            return Color(.lightGray)
+            return .gray
         case .grade:
             return .secondary
         default:
@@ -46,10 +50,10 @@ enum ButtonType: Hashable, CustomStringConvertible {
     
     var foregroundColor: Color {
         switch self {
-        case .grade:
-            return .white
-        default:
+        case .memory(_):
             return .black
+        default:
+            return .white
         }
     }
 }

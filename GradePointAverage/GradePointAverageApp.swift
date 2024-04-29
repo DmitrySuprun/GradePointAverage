@@ -12,6 +12,7 @@ struct GradePointAverageApp: App {
     var body: some Scene {
         WindowGroup {
             GradeCalculatorBuilder.makeCalculatorView()
+                .environment(\.colorScheme, .light)
         }
     }
 }

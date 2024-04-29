@@ -7,39 +7,57 @@
 
 import SwiftUI
 
+private extension Constants {
+    /// Grade
+    static let gradeFontSize: CGFloat = 50
+    static let gradeFontWeight: Font.Weight = .thin
+    static let gradeColor: Color = .white
+    static let buttonsRowsCount = 4
+    // Information panel
+    static let infoPanelColor: Color = .white
+    
+    static let gradeAverageFormat: String = "%.2f"
+}
+
+/// Main grade calculator
 struct GradeCalculatorView: View {
     
-    var viewModel: GradeCalculatorViewModel
+    // MARK: - Properties
+    
+    @ObservedObject var viewModel: GradeCalculatorViewModel
+    
+    // MARK: - View
     
     var body: some View {
         VStack {
             InformationPanelView(
-                gpa: viewModel.gradePointAverage,
+                gradePointAverage: viewModel.gradePointAverage,
                 gradesCount: viewModel.gradesCount,
                 currentMemory: viewModel.currentMemory
             )
-            Spacer()
-            HStack {
-                Spacer()
+            ScrollView {
                 Text(viewModel.displayedGrades)
-                    .font(.system(size: 50))
-                    .foregroundColor(.white)
+                    .font(.system(size: Constants.gradeFontSize, weight: Constants.gradeFontWeight))
+                    .foregroundColor(Constants.gradeColor)
                     .multilineTextAlignment(.trailing)
                     .frame(maxWidth: .infinity, alignment: .trailing)
-                
             }
-            buttonPad
+            buttonsPad
+                .padding(.bottom)
         }
-        .padding(Constants.padding)
+        .padding(Constants.buttonPadding)
         .background(Color.black)
     }
     
-    private var buttonPad: some View {
-        VStack(spacing: Constants.padding) {
+    // MARK: - Private view
+    
+    private var buttonsPad: some View {
+        VStack(spacing: Constants.buttonPadding) {
             ForEach(viewModel.buttons, id: \.self) { row in
-                HStack(spacing: Constants.padding) {
+                HStack(spacing: Constants.buttonPadding) {
                     ForEach(row, id: \.self) { buttonType in
-                        let isWide = row.count < 4 && buttonType == lastGradeButton(from: row)
+                        let isWide = row.count < Constants.buttonsRowsCount
+                            && buttonType == lastGradeButton(from: row)
                         CalculatorButton(
                             buttonType: buttonType,
                             isWide: isWide) {
@@ -49,7 +67,10 @@ struct GradeCalculatorView: View {
                 }
             }
         }
+//        .animation(.interactiveSpring, value: viewModel.buttons)
     }
+    
+    // MARK: - Private methods
     
     private func lastGradeButton(from types: [ButtonType]) -> ButtonType? {
         types.filter { type in
@@ -63,24 +84,30 @@ struct GradeCalculatorView: View {
     }
 }
 
+/// Current info about calculating state
 struct InformationPanelView: View {
     
-    /// Grades Point Average
-    let gpa: Double
+    // MARK: - Properties
+    
+    let gradePointAverage: Double
     let gradesCount: String
     let currentMemory: String
     
+    // MARK: - View
+    
     var body: some View {
         HStack {
-            Text(verbatim: String(format: "%.2f", gpa))
+            Text(verbatim: String(format: Constants.gradeAverageFormat, gradePointAverage))
             Spacer()
             Text(verbatim: gradesCount)
             Spacer()
             Text(currentMemory)
         }
-        .foregroundColor(.white)
+        .foregroundColor(Constants.infoPanelColor)
     }
 }
+
+// MARK: - Preview
 
 #Preview {
     GradeCalculatorBuilder.makeCalculatorView()

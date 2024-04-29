@@ -5,6 +5,7 @@
 //  Created by Dmitriy Suprun on 7.04.24.
 //
 
+/// Calculator state
 enum Memory: CustomStringConvertible {
     case m1, m2, m3
     
