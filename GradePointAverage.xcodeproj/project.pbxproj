@@ -10,8 +10,8 @@
 		A808496F2BAB574E00F295F5 /* GradePointAverageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */; };
 		A80849732BAB575000F295F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80849722BAB575000F295F5 /* Assets.xcassets */; };
 		A80849762BAB575000F295F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80849752BAB575000F295F5 /* Preview Assets.xcassets */; };
-		A82EF3BF2BDCE11A00DADBA2 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EF3BE2BDCE11A00DADBA2 /* KeychainManager.swift */; };
 		A82EF3C12BDE498000DADBA2 /* GradeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EF3C02BDE498000DADBA2 /* GradeSystem.swift */; };
+		A8473CBC2BDFFAD100AB794C /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8473CBB2BDFFAD100AB794C /* Test.swift */; };
 		A86590572BC279CB00EA9DBF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86590562BC279CB00EA9DBF /* Constants.swift */; };
 		A865905A2BC27A2F00EA9DBF /* CalculatorButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86590592BC27A2F00EA9DBF /* CalculatorButtonStyle.swift */; };
 		A865905D2BC27A6000EA9DBF /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865905C2BC27A6000EA9DBF /* ButtonType.swift */; };
@@ -30,8 +30,8 @@
 		A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradePointAverageApp.swift; sourceTree = "<group>"; };
 		A80849722BAB575000F295F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A80849752BAB575000F295F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A82EF3BE2BDCE11A00DADBA2 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		A82EF3C02BDE498000DADBA2 /* GradeSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSystem.swift; sourceTree = "<group>"; };
+		A8473CBB2BDFFAD100AB794C /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		A86590562BC279CB00EA9DBF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A86590592BC27A2F00EA9DBF /* CalculatorButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonStyle.swift; sourceTree = "<group>"; };
 		A865905C2BC27A6000EA9DBF /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
@@ -59,6 +59,7 @@
 		A80849622BAB574E00F295F5 = {
 			isa = PBXGroup;
 			children = (
+				A8473CBA2BDFFABB00AB794C /* Test */,
 				A808496D2BAB574E00F295F5 /* GradePointAverage */,
 				A808496C2BAB574E00F295F5 /* Products */,
 			);
@@ -78,7 +79,6 @@
 				A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */,
 				A865CCDB2BB8554D00C6E08B /* GradeCalculatorBuilder.swift */,
 				A86590562BC279CB00EA9DBF /* Constants.swift */,
-				A82EF3BD2BDCE0FB00DADBA2 /* KeychainManager */,
 				A865CCD22BB8178D00C6E08B /* GradeCalculator */,
 				A80849722BAB575000F295F5 /* Assets.xcassets */,
 				A80849742BAB575000F295F5 /* Preview Content */,
@@ -94,12 +94,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A82EF3BD2BDCE0FB00DADBA2 /* KeychainManager */ = {
+		A8473CBA2BDFFABB00AB794C /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				A82EF3BE2BDCE11A00DADBA2 /* KeychainManager.swift */,
+				A8473CBB2BDFFAD100AB794C /* Test.swift */,
 			);
-			path = KeychainManager;
+			path = Test;
 			sourceTree = "<group>";
 		};
 		A86590582BC27A1100EA9DBF /* Styles */ = {
@@ -213,10 +213,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A82EF3BF2BDCE11A00DADBA2 /* KeychainManager.swift in Sources */,
 				A808496F2BAB574E00F295F5 /* GradePointAverageApp.swift in Sources */,
 				A865CCD12BB8163E00C6E08B /* GradeCalculatorView.swift in Sources */,
 				A865CCD42BB817AD00C6E08B /* GradeCalculatorViewModel.swift in Sources */,
+				A8473CBC2BDFFAD100AB794C /* Test.swift in Sources */,
 				A865CCDC2BB8554D00C6E08B /* GradeCalculatorBuilder.swift in Sources */,
 				A865CCD82BB818E400C6E08B /* Grade.swift in Sources */,
 				A82EF3C12BDE498000DADBA2 /* GradeSystem.swift in Sources */,

@@ -17,6 +17,8 @@ private extension Constants {
     static let infoPanelColor: Color = .white
     
     static let gradeAverageFormat: String = "%.2f"
+    
+    static let gradeTextId = "grade"
 }
 
 /// Main grade calculator
@@ -35,12 +37,18 @@ struct GradeCalculatorView: View {
                 gradesCount: viewModel.gradesCount,
                 currentMemory: viewModel.currentMemory
             )
-            ScrollView {
-                Text(viewModel.displayedGrades)
-                    .font(.system(size: Constants.gradeFontSize, weight: Constants.gradeFontWeight))
-                    .foregroundColor(Constants.gradeColor)
-                    .multilineTextAlignment(.trailing)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+            ScrollViewReader { scrollViewProxy in
+                ScrollView(.vertical,showsIndicators: true) {
+                    Text(viewModel.displayedGrades)
+                        .font(.system(size: Constants.gradeFontSize, weight: Constants.gradeFontWeight))
+                        .foregroundColor(Constants.gradeColor)
+                        .multilineTextAlignment(.trailing)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .id(Constants.gradeTextId)
+                }
+                .onChange(of: viewModel.displayedGrades) { _ in
+                    scrollViewProxy.scrollTo(Constants.gradeTextId, anchor: .bottom)
+                }
             }
             buttonsPad
                 .padding(.bottom)

@@ -36,8 +36,9 @@ struct CalculatorButton: View {
         }
         .buttonStyle(CalculatorButtonStyle(
             size: getButtonSize(),
-            backgroundColor: getBackgroundColor(),
-            foregroundColor: getForegroundColor(),
+            backgroundColor: buttonType.backgroundColor,
+            foregroundColor: buttonType.foregroundColor,
+            buttonFont: buttonType.buttonFont,
             isWide: isWide
         ))
     }
@@ -49,14 +50,6 @@ struct CalculatorButton: View {
         let buttonCount: CGFloat = 4
         let spacingCount = buttonCount + 1
         return (screenWidth - (spacingCount * Constants.buttonPadding)) / buttonCount
-    }
-    
-    private func getBackgroundColor() -> Color {
-        return buttonType.backgroundColor
-    }
-    
-    private func getForegroundColor() -> Color {
-        return buttonType.foregroundColor
     }
 }
 

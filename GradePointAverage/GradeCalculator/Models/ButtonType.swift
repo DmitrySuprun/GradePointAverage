@@ -8,6 +8,13 @@
 import Foundation
 import SwiftUI
 
+private extension Constants {
+    static let memoryButtonFont = Font.system(size: 42, weight: .regular)
+    static let padButtonFont = Font.system(size: 30, weight: .medium)
+    static let systemButtonFont = Font.system(size: 35, weight: .medium)
+
+}
+
 /// Calculator Bytton type
 enum ButtonType: Hashable, CustomStringConvertible {
     case grade(_ grade: Grade?)
@@ -54,6 +61,39 @@ enum ButtonType: Hashable, CustomStringConvertible {
             return .black
         default:
             return .white
+        }
+    }
+    
+    var selectedBackgroundColor: Color {
+        switch self {
+        case .memory:
+            return .gray
+        case .grade:
+            return .secondary
+        default:
+            return .orange
+        }
+    }
+    
+    var selectedForegroundColor: Color {
+        switch self {
+        case .memory:
+            return .gray
+        case .grade:
+            return .secondary
+        default:
+            return .orange
+        }
+    }
+    
+    var buttonFont: Font {
+        switch self {
+        case .grade:
+            return Constants.memoryButtonFont
+        case .memory:
+            return Constants.systemButtonFont
+        default:
+            return Constants.padButtonFont
         }
     }
 }
