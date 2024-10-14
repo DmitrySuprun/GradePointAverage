@@ -17,6 +17,8 @@ final class GradeCalculatorViewModel: ObservableObject {
     @Published var gradesCount = "0"
     @Published var currentMemory = "M1"
     
+    @Published var isSettingsPresented = false
+    
     // Dependencies
     let calculator: IAverageCalculator
     
@@ -40,7 +42,7 @@ final class GradeCalculatorViewModel: ObservableObject {
         case .memory(let memory):
             calculator.setCurrentMemory(memory)
         case .settings:
-            break
+            isSettingsPresented = true
         case .up:
             calculator.resetCalculator()
             changeGradeSystem(.forward)

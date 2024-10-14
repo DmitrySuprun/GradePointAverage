@@ -11,7 +11,6 @@
 		A80849732BAB575000F295F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80849722BAB575000F295F5 /* Assets.xcassets */; };
 		A80849762BAB575000F295F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A80849752BAB575000F295F5 /* Preview Assets.xcassets */; };
 		A82EF3C12BDE498000DADBA2 /* GradeSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EF3C02BDE498000DADBA2 /* GradeSystem.swift */; };
-		A8473CBC2BDFFAD100AB794C /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8473CBB2BDFFAD100AB794C /* Test.swift */; };
 		A86590572BC279CB00EA9DBF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86590562BC279CB00EA9DBF /* Constants.swift */; };
 		A865905A2BC27A2F00EA9DBF /* CalculatorButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A86590592BC27A2F00EA9DBF /* CalculatorButtonStyle.swift */; };
 		A865905D2BC27A6000EA9DBF /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865905C2BC27A6000EA9DBF /* ButtonType.swift */; };
@@ -23,6 +22,14 @@
 		A865CCD82BB818E400C6E08B /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865CCD72BB818E400C6E08B /* Grade.swift */; };
 		A865CCDA2BB81AD000C6E08B /* GradeAverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865CCD92BB81AD000C6E08B /* GradeAverage.swift */; };
 		A865CCDC2BB8554D00C6E08B /* GradeCalculatorBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865CCDB2BB8554D00C6E08B /* GradeCalculatorBuilder.swift */; };
+		A86E7FBA2CAC7833005AE0F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A86E7FB92CAC7833005AE0F0 /* GoogleService-Info.plist */; };
+		A86E7FBD2CAC7923005AE0F0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A86E7FBC2CAC7923005AE0F0 /* FirebaseAnalytics */; };
+		A86E7FBF2CAC7923005AE0F0 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = A86E7FBE2CAC7923005AE0F0 /* FirebaseAnalyticsOnDeviceConversion */; };
+		A86E7FC12CAC7923005AE0F0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = A86E7FC02CAC7923005AE0F0 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		A86E7FC32CAC7923005AE0F0 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = A86E7FC22CAC7923005AE0F0 /* FirebaseAppCheck */; };
+		A86E7FC52CAC7923005AE0F0 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = A86E7FC42CAC7923005AE0F0 /* FirebaseAppDistribution-Beta */; };
+		A8B87AB92BE92D8A008A2CBC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B87AB82BE92D8A008A2CBC /* SettingsView.swift */; };
+		A8E924BD2CBD9A240084E4F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E924BC2CBD9A240084E4F1 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +38,6 @@
 		A80849722BAB575000F295F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A80849752BAB575000F295F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A82EF3C02BDE498000DADBA2 /* GradeSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeSystem.swift; sourceTree = "<group>"; };
-		A8473CBB2BDFFAD100AB794C /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		A86590562BC279CB00EA9DBF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A86590592BC27A2F00EA9DBF /* CalculatorButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonStyle.swift; sourceTree = "<group>"; };
 		A865905C2BC27A6000EA9DBF /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
@@ -43,6 +49,9 @@
 		A865CCD72BB818E400C6E08B /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
 		A865CCD92BB81AD000C6E08B /* GradeAverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeAverage.swift; sourceTree = "<group>"; };
 		A865CCDB2BB8554D00C6E08B /* GradeCalculatorBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeCalculatorBuilder.swift; sourceTree = "<group>"; };
+		A86E7FB92CAC7833005AE0F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A8B87AB82BE92D8A008A2CBC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A8E924BC2CBD9A240084E4F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +59,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A86E7FC32CAC7923005AE0F0 /* FirebaseAppCheck in Frameworks */,
+				A86E7FBD2CAC7923005AE0F0 /* FirebaseAnalytics in Frameworks */,
+				A86E7FC52CAC7923005AE0F0 /* FirebaseAppDistribution-Beta in Frameworks */,
+				A86E7FC12CAC7923005AE0F0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				A86E7FBF2CAC7923005AE0F0 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +73,6 @@
 		A80849622BAB574E00F295F5 = {
 			isa = PBXGroup;
 			children = (
-				A8473CBA2BDFFABB00AB794C /* Test */,
 				A808496D2BAB574E00F295F5 /* GradePointAverage */,
 				A808496C2BAB574E00F295F5 /* Products */,
 			);
@@ -77,8 +90,11 @@
 			isa = PBXGroup;
 			children = (
 				A808496E2BAB574E00F295F5 /* GradePointAverageApp.swift */,
+				A8E924BC2CBD9A240084E4F1 /* AppDelegate.swift */,
 				A865CCDB2BB8554D00C6E08B /* GradeCalculatorBuilder.swift */,
+				A86E7FB92CAC7833005AE0F0 /* GoogleService-Info.plist */,
 				A86590562BC279CB00EA9DBF /* Constants.swift */,
+				A8B87AB62BE92D5C008A2CBC /* Settings */,
 				A865CCD22BB8178D00C6E08B /* GradeCalculator */,
 				A80849722BAB575000F295F5 /* Assets.xcassets */,
 				A80849742BAB575000F295F5 /* Preview Content */,
@@ -92,14 +108,6 @@
 				A80849752BAB575000F295F5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		A8473CBA2BDFFABB00AB794C /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				A8473CBB2BDFFAD100AB794C /* Test.swift */,
-			);
-			path = Test;
 			sourceTree = "<group>";
 		};
 		A86590582BC27A1100EA9DBF /* Styles */ = {
@@ -143,6 +151,22 @@
 			path = GradeCalculator;
 			sourceTree = "<group>";
 		};
+		A8B87AB62BE92D5C008A2CBC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A8B87AB72BE92D6D008A2CBC /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A8B87AB72BE92D6D008A2CBC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8B87AB82BE92D8A008A2CBC /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,6 +183,13 @@
 			dependencies = (
 			);
 			name = GradePointAverage;
+			packageProductDependencies = (
+				A86E7FBC2CAC7923005AE0F0 /* FirebaseAnalytics */,
+				A86E7FBE2CAC7923005AE0F0 /* FirebaseAnalyticsOnDeviceConversion */,
+				A86E7FC02CAC7923005AE0F0 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				A86E7FC22CAC7923005AE0F0 /* FirebaseAppCheck */,
+				A86E7FC42CAC7923005AE0F0 /* FirebaseAppDistribution-Beta */,
+			);
 			productName = GradePointAverage;
 			productReference = A808496B2BAB574E00F295F5 /* GradePointAverage.app */;
 			productType = "com.apple.product-type.application";
@@ -187,6 +218,9 @@
 				Base,
 			);
 			mainGroup = A80849622BAB574E00F295F5;
+			packageReferences = (
+				A86E7FBB2CAC7923005AE0F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = A808496C2BAB574E00F295F5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -203,6 +237,7 @@
 			files = (
 				A80849762BAB575000F295F5 /* Preview Assets.xcassets in Resources */,
 				A80849732BAB575000F295F5 /* Assets.xcassets in Resources */,
+				A86E7FBA2CAC7833005AE0F0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,9 +251,10 @@
 				A808496F2BAB574E00F295F5 /* GradePointAverageApp.swift in Sources */,
 				A865CCD12BB8163E00C6E08B /* GradeCalculatorView.swift in Sources */,
 				A865CCD42BB817AD00C6E08B /* GradeCalculatorViewModel.swift in Sources */,
-				A8473CBC2BDFFAD100AB794C /* Test.swift in Sources */,
+				A8E924BD2CBD9A240084E4F1 /* AppDelegate.swift in Sources */,
 				A865CCDC2BB8554D00C6E08B /* GradeCalculatorBuilder.swift in Sources */,
 				A865CCD82BB818E400C6E08B /* Grade.swift in Sources */,
+				A8B87AB92BE92D8A008A2CBC /* SettingsView.swift in Sources */,
 				A82EF3C12BDE498000DADBA2 /* GradeSystem.swift in Sources */,
 				A865905F2BC27C6800EA9DBF /* Memory.swift in Sources */,
 				A865905D2BC27A6000EA9DBF /* ButtonType.swift in Sources */,
@@ -440,6 +476,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A86E7FBB2CAC7923005AE0F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A86E7FBC2CAC7923005AE0F0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A86E7FBB2CAC7923005AE0F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		A86E7FBE2CAC7923005AE0F0 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A86E7FBB2CAC7923005AE0F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		A86E7FC02CAC7923005AE0F0 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A86E7FBB2CAC7923005AE0F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		A86E7FC22CAC7923005AE0F0 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A86E7FBB2CAC7923005AE0F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		A86E7FC42CAC7923005AE0F0 /* FirebaseAppDistribution-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A86E7FBB2CAC7923005AE0F0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAppDistribution-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A80849632BAB574E00F295F5 /* Project object */;
 }

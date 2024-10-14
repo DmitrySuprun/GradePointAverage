@@ -6,7 +6,7 @@
 //
 
 /// System of grades
-enum GradeSystem: CaseIterable {
+enum GradeSystem: String, CaseIterable {
     enum Direction {
         case forward
         case back

@@ -55,6 +55,9 @@ struct GradeCalculatorView: View {
         }
         .padding(Constants.buttonPadding)
         .background(Color.black)
+        .sheet(isPresented: $viewModel.isSettingsPresented) {
+            SettingsView()
+        }
     }
     
     // MARK: - Private view
