@@ -37,19 +37,7 @@ struct GradeCalculatorView: View {
                 gradesCount: viewModel.gradesCount,
                 currentMemory: viewModel.currentMemory
             )
-            ScrollViewReader { scrollViewProxy in
-                ScrollView(.vertical,showsIndicators: true) {
-                    Text(viewModel.displayedGrades)
-                        .font(.system(size: Constants.gradeFontSize, weight: Constants.gradeFontWeight))
-                        .foregroundColor(Constants.gradeColor)
-                        .multilineTextAlignment(.trailing)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .id(Constants.gradeTextId)
-                }
-                .onChange(of: viewModel.displayedGrades) { _ in
-                    scrollViewProxy.scrollTo(Constants.gradeTextId, anchor: .bottom)
-                }
-            }
+            gradeView
             buttonsPad
                 .padding(.bottom)
         }
@@ -61,6 +49,22 @@ struct GradeCalculatorView: View {
     }
     
     // MARK: - Private view
+    
+    private var gradeView: some View {
+        ScrollViewReader { scrollViewProxy in
+            ScrollView(.vertical,showsIndicators: true) {
+                Text(viewModel.displayedGrades)
+                    .font(.system(size: Constants.gradeFontSize, weight: Constants.gradeFontWeight))
+                    .foregroundColor(Constants.gradeColor)
+                    .multilineTextAlignment(.trailing)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .id(Constants.gradeTextId)
+            }
+            .onChange(of: viewModel.displayedGrades) { _ in
+                scrollViewProxy.scrollTo(Constants.gradeTextId, anchor: .bottom)
+            }
+        }
+    }
     
     private var buttonsPad: some View {
         VStack(spacing: Constants.buttonPadding) {
