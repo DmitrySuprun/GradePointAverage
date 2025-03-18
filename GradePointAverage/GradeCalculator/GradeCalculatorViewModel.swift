@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
 final class GradeCalculatorViewModel: ObservableObject {
     
     var buttons: [[ButtonType]] = Pad.ten
     
     // Published
-    @Published var displayedGrades = ""
+    @Published var displayedGrades: [Grade] = []
     @Published var gradePointAverage = 0.0
     @Published var gradesCount = "0"
     @Published var currentMemory = "M1"

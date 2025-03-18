@@ -27,6 +27,7 @@ struct GradeCalculatorView: View {
     // MARK: - Properties
     
     @ObservedObject var viewModel: GradeCalculatorViewModel
+    @State private var scrollViewProxy: ScrollViewProxy?
     
     // MARK: - View
     
@@ -37,7 +38,7 @@ struct GradeCalculatorView: View {
                 gradesCount: viewModel.gradesCount,
                 currentMemory: viewModel.currentMemory
             )
-            gradeView
+            gradeListView
             buttonsPad
                 .padding(.bottom)
         }
@@ -50,10 +51,47 @@ struct GradeCalculatorView: View {
     
     // MARK: - Private view
     
+    private var gradeListView: some View {
+        
+        VStack {
+            ScrollView(.horizontal, showsIndicators: true) {
+                ScrollViewReader { proxy in
+                    LazyHStack(spacing: 10) {
+                        let grades = viewModel.displayedGrades
+                        ForEach(grades.indices, id: \.self) { index in
+                            VStack {
+                                Text("\(grades[index].description)")
+                                    .font(.largeTitle)
+                                    .frame(width: 50, height: 50)
+                                    .background(Color.gray)
+                                    .cornerRadius(10)
+                                    .shadow(radius: 5)
+                                    .scaleEffect(grades[index].isNew ? 0.1 : 1.0)
+//                                    .animation(.easeInOut(duration: 1), value: grades[index].isNew)
+                                Text("\(index + 1)")
+                                    .font(.callout)
+                                    .foregroundColor(Color.yellow)
+                            }
+                            .transition(.scale)
+                            .id(index)
+                        }
+                    }
+                    .onAppear {
+                        scrollViewProxy = proxy
+                    }
+                    .padding()
+                }
+            }
+            .onChange(of: viewModel.displayedGrades) { _ in
+                scrollToLastGrade()
+            }
+        }
+    }
+    
     private var gradeView: some View {
         ScrollViewReader { scrollViewProxy in
             ScrollView(.vertical,showsIndicators: true) {
-                Text(viewModel.displayedGrades)
+                Text("\(viewModel.displayedGrades.count)")
                     .font(.system(size: Constants.gradeFontSize, weight: Constants.gradeFontWeight))
                     .foregroundColor(Constants.gradeColor)
                     .multilineTextAlignment(.trailing)
@@ -96,6 +134,14 @@ struct GradeCalculatorView: View {
                 return false
             }
         }.last
+    }
+    
+    private func scrollToLastGrade() {
+        guard let scrollViewProxy, !viewModel.displayedGrades.isEmpty else { return }
+        let lastIndex = viewModel.displayedGrades.count - 1
+        withAnimation {
+            scrollViewProxy.scrollTo(lastIndex, anchor: .leading)
+        }
     }
 }
 

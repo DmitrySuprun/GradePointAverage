@@ -5,15 +5,21 @@
 //  Created by Dmitriy Suprun on 30.03.24.
 //
 
+import Foundation
+
 /// Grade
-struct Grade: Hashable {
+struct Grade: Hashable, Identifiable {
     
     // MARK: - Properties
     
+    /// ID
+    let id = UUID()
     /// Text description of grade for display on calculator text fields
     let description: String
     /// Value for calculating average grade
     let value: Int
+    /// animation
+    var isNew: Bool = false
     
     // MARK: - Init
     

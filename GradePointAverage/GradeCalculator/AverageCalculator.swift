@@ -12,7 +12,7 @@ private extension Constants {
 /// Calculator
 protocol IAverageCalculator: AnyObject {
     /// Current grades as a string
-    var grades: String { get }
+    var grades: [Grade] { get }
     /// Appends a new grade to the current memory.
     func appendNew(grade: Grade)
     /// Removes the last grade from the current memory.
@@ -48,8 +48,8 @@ final class AverageCalculator {
 // MARK: - Average Calculation Logic
 extension AverageCalculator: IAverageCalculator {
     
-    var grades: String {
-        getGradesForCurrentMemory().map { $0.description }.joined(separator: Constants.gradesSeparator)
+    var grades: [Grade] {
+        getGradesForCurrentMemory()
     }
     
     func appendNew(grade: Grade) {
